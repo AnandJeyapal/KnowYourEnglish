@@ -1,10 +1,10 @@
 # KnowYourEnglish
 A Simple Android-Kotlin Application with Firebase real-time database
 
-Home Page
+Home and Favorites Page
 
-![alt text](https://github.com/AnandJeyapal/KnowYourEnglish/Home.png?raw=true)
+<img src="https://github.com/AnandJeyapal/KnowYourEnglish/blob/main/blob/Home.png" width="800px" />
 
-Favorites Page
+Detail Page
 
-![alt text](https://github.com/AnandJeyapal/KnowYourEnglish/Favorites.png?raw=true)
+<img src="https://github.com/AnandJeyapal/KnowYourEnglish/blob/main/blob/detail.png" width="400px" />
