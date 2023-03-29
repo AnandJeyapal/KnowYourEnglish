@@ -42,8 +42,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:src="@drawable/ic_favorite_24"
+            android:src="@drawable/ic_not_favorite"
             app:layout_anchor="@id/article_image"
+            android:tint="@color/black"
             app:layout_anchorGravity="bottom|right|end" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </ScrollView>

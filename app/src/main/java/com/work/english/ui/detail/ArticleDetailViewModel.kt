@@ -1,28 +1,32 @@
 package com.work.english.ui.detail
 
-import androidx.lifecycle.LiveData
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
-import com.work.english.data.Article
 import com.work.english.data.ArticleResponse
 import com.work.english.data.ArticlesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 @HiltViewModel
 class ArticleDetailViewModel @Inject constructor(val articlesRepository: ArticlesRepository) : ViewModel() {
 
-    var articleLiveDate: LiveData<ArticleResponse> = MutableLiveData()
+    var articleLiveDate: MutableLiveData<ArticleResponse> = MutableLiveData()
+
+    val statusLiveData: MutableLiveData<String> = MutableLiveData("")
 
     fun getArticle(key: String) {
-        articleLiveDate = liveData(Dispatchers.IO) {
-            emit((articlesRepository.getArticle(key)))
-        }
+        articlesRepository.getArticle(key, articleLiveDate)
+    }
+
+    fun toggleFavorite(articleId: String) {
+        val favorite = articleLiveDate.value?.let { it.article?.favorite ?: false} ?: false
+        articlesRepository.toggleFavorite(articleId, !favorite)
+    }
+
+    fun onFavoriteError(e: Exception) {
+        Log.e("XXX", e.message.toString())
+        statusLiveData.value = "Error While Marking Favorite"
     }
 
 }
