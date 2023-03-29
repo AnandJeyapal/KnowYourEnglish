@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.work.english.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action android:id="@+id/action_fragment_home_to_detail"
+            app:destination="@id/navigation_article">
+            <argument
+                android:name="articleId"
+                app:argType="string"
+                android:defaultValue="1" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_article"
+        android:name="com.work.english.ui.detail.ArticleDetailFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/fragment_article_detail" >
+        <argument
+            android:name="articleId"
+            app:argType="string"
+            android:defaultValue="1" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favorites"
+        android:name="com.work.english.ui.favorites.FavoritesFragment"
+        android:label="@string/title_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action android:id="@+id/action_fragment_favorites_to_detail"
+            app:destination="@id/navigation_article">
+            <argument
+                android:name="articleId"
+                app:argType="string"
+                android:defaultValue="1" />
+        </action>
+    </fragment>
+
+</navigation>
